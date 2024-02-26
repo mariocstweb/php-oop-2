@@ -51,23 +51,23 @@ class Fish extends Animal
 // Classe per i prodotti
 class Product
 {
-  public $name;
+  public $brand;
   public $category;
-  public $type;
   public $price;
+  public $imageURL;
 
-  public function __construct($name, $category, $type, $price)
+  public function __construct($brand, $category, $price, $imageURL)
   {
-    $this->name = $name;
+    $this->brand = $brand;
     $this->category = $category;
-    $this->type = $type;
     $this->price = $price;
+    $this->imageURL = $imageURL;
   }
 
   // Getter
-  public function getName()
+  public function getbrand()
   {
-    return $this->name;
+    return $this->brand;
   }
 
   public function getCategory()
@@ -75,38 +75,38 @@ class Product
     return $this->category;
   }
 
-  public function getType()
-  {
-    return $this->type;
-  }
-
   public function getPrice()
   {
     return $this->price;
+  }
+
+  public function getImageURL()
+  {
+    return $this->imageURL;
   }
 }
 
 // Sottoclassi per categorie specifiche di prodotti
 class Food extends Product
 {
-  public function __construct($name, $category, $price)
+  public function __construct($brand, $category, $price, $imageURL)
   {
-    parent::__construct($name, $category, "Cibo", $price);
+    parent::__construct($brand, $category, $price, $imageURL);
   }
 }
 
 class Toy extends Product
 {
-  public function __construct($name, $category, $price)
+  public function __construct($brand, $category, $price, $imageURL)
   {
-    parent::__construct($name, $category, "Gioco", $price);
+    parent::__construct($brand, $category, $price, $imageURL);
   }
 }
 
 class Accessory extends Product
 {
-  public function __construct($name, $category, $price)
+  public function __construct($brand, $category, $price, $imageURL)
   {
-    parent::__construct($name, $category, "Accessorio", $price);
+    parent::__construct($brand, $category, $price, $imageURL);
   }
 }
