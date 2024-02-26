@@ -8,45 +8,105 @@ class Animal
   {
     $this->type = $type;
   }
+  // Getter
+  public function getType()
+  {
+    return $this->type;
+  }
 }
 
-class Products extends Animal
+// Sottoclassi per tipo di animale
+class Dog extends Animal
 {
-  public $food;
-  public $game;
-  public $accessories;
-
-  public function __construct($type, $food, $game, $accessories)
+  public function __construct($type)
   {
     parent::__construct($type);
-    $this->food = $food;
-    $this->game = $game;
-    $this->accessories = $accessories;
   }
 }
 
-class Game extends Products
+class Cat extends Animal
 {
-  public $material;
-  public $age;
-
-  public function __construct($type, $food, $material, $age)
+  public function __construct($type)
   {
-    parent::__construct($type, $food, null, null);
-    $this->material = $material;
-    $this->age = $age;
+    parent::__construct($type);
   }
 }
 
-class Accessories extends Products
+class Bird extends Animal
 {
-  public $training;
-  public $clothing;
-
-  public function __construct($type, $food, $training, $clothing)
+  public function __construct($type)
   {
-    parent::__construct($type, $food, null, null);
-    $this->training = $training;
-    $this->clothing = $clothing;
+    parent::__construct($type);
+  }
+}
+
+class Fish extends Animal
+{
+  public function __construct($type)
+  {
+    parent::__construct($type);
+  }
+}
+
+// Classe per i prodotti
+class Product
+{
+  public $name;
+  public $category;
+  public $type;
+  public $price;
+
+  public function __construct($name, $category, $type, $price)
+  {
+    $this->name = $name;
+    $this->category = $category;
+    $this->type = $type;
+    $this->price = $price;
+  }
+
+  // Getter
+  public function getName()
+  {
+    return $this->name;
+  }
+
+  public function getCategory()
+  {
+    return $this->category;
+  }
+
+  public function getType()
+  {
+    return $this->type;
+  }
+
+  public function getPrice()
+  {
+    return $this->price;
+  }
+}
+
+// Sottoclassi per categorie specifiche di prodotti
+class Food extends Product
+{
+  public function __construct($name, $category, $price)
+  {
+    parent::__construct($name, $category, "Cibo", $price);
+  }
+}
+
+class Toy extends Product
+{
+  public function __construct($name, $category, $price)
+  {
+    parent::__construct($name, $category, "Gioco", $price);
+  }
+}
+
+class Accessory extends Product
+{
+  public function __construct($name, $category, $price)
+  {
+    parent::__construct($name, $category, "Accessorio", $price);
   }
 }
